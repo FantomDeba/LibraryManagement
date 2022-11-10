@@ -1,0 +1,18 @@
+create table customer( customer_id number not null,first_name varchar2(20),last_name varchar2(20));
+create table issues(issue_id number not null,cust_id number,book_bn number,issue_date date);
+create table book(book_isbn number not null,book_name varchar2(20),book_type varchar2(20),issue_status varchar2(20));
+create table return(return_id number not null,book_is number,custo_id number,return_date date );
+ALTER TABLE customer ADD CONSTRAINT CUSTOMER_PKEY PRIMARY KEY(customer_id);
+ALTER TABLE issues ADD CONSTRAINT ISSUE_PKEY PRIMARY KEY(issue_id);
+ALTER TABLE book ADD CONSTRAINT BOOK_PKEY  PRIMARY KEY(book_isbn);
+ALTER TABLE return  ADD CONSTRAINT RETURN_PKEY PRIMARY KEY(return_id);
+ALTER TABLE issues ADD CONSTRAINT ISSUE_FKEY FOREIGN KEY(cust_id) REFERENCES customer(customer_id);
+ALTER TABLE issues ADD CONSTRAINT ISSUE_GKEY FOREIGN KEY(book_bn) REFERENCES book(book_isbn);
+ALTER TABLE return ADD CONSTRAINT RETURN_FKEY FOREIGN KEY(book_is) REFERENCES book(book_isbn);
+ALTER TABLE return ADD CONSTRAINT RETURN_GKEY FOREIGN KEY(custo_id) REFERENCES customer(customer_id);
+desc customer;
+desc issues;
+desc book;
+desc return;
+CREATE SEQUENCE it1 START WITH 5 INCREMENT BY 1 NOCACHE NOCYCLE;
+CREATE SEQUENCE it2 START WITH 3 INCREMENT BY 1 NOCACHE NOCYCLE;
