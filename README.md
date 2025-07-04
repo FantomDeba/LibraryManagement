@@ -1,1 +1,1 @@
-I made this as a part of my DBMS project in my undergrad. I have made an interactive library management system through pl-sql.
+I made this as a part of my DBMS project in my undergrad. I have made an interactive library management system through pl-sql.This is an interactive library management system where user can search through books.
